@@ -13,7 +13,10 @@ function MyApp({ Component, pageProps }) {
       console.error('liff init error', error.message)
     }
     if (!liff.isLoggedIn()) {
-      liff.login();
+      liff.login({
+        scope: 'profile,profile%20openid,profile%20openid%20email,openid,openid%20email',
+        prompt: 'consent'
+      });
     }
   })
 
